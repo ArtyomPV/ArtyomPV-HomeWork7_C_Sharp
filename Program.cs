@@ -57,49 +57,49 @@ m = 3, n = 4.
 */
 //================= Task 2 25 min ===========================
 
-int[,] Create2DArray(int rows, int cols, int min, int max)
-{
-    int[,] array = new int[rows, cols];
-    for (int i = 0; i < rows; i++)
-    {
-        for(int j = 0; j < cols; j++)
-        {
-            array[i,j] = new Random().Next(min, max+1);
-        }
-    }
-    return array;
-}
+// int[,] Create2DArray(int rows, int cols, int min, int max)
+// {
+//     int[,] array = new int[rows, cols];
+//     for (int i = 0; i < rows; i++)
+//     {
+//         for(int j = 0; j < cols; j++)
+//         {
+//             array[i,j] = new Random().Next(min, max+1);
+//         }
+//     }
+//     return array;
+// }
 
-void Show2DArray(int[,] array)
-{
-    for(int i = 0; i < array.GetLength(0); i++)
-    {
-        for(int j = 0; j< array.GetLength(1); j++)
-        {
-            Console.Write(array[i,j] + " ");
-        }
-        Console.WriteLine();
-    }
-}
+// void Show2DArray(int[,] array)
+// {
+//     for(int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for(int j = 0; j< array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i,j] + " ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
 
-void FindArrayElementPosition(int[,] array, int row, int col)
-{
-    if(row >= array.GetLength(0) || col >= array.GetLength(1)) 
-        Console.Write("A number is absent in array.");
-    else 
-    {
-        Console.Write($"Value is {array[row, col]}");
-    }
-}
-int[,] array  = Create2DArray(4, 4, 1, 9);
-Show2DArray(array);
+// void FindArrayElementPosition(int[,] array, int row, int col)
+// {
+//     if(row >= array.GetLength(0) || col >= array.GetLength(1)) 
+//         Console.Write("A number is absent in array.");
+//     else 
+//     {
+//         Console.Write($"Value is {array[row, col]}");
+//     }
+// }
+// int[,] array  = Create2DArray(4, 4, 1, 9);
+// Show2DArray(array);
 
-Console.Write("Enter row`s number: ");
-int row = Convert.ToInt32(Console.ReadLine());
-Console.Write("Enter column`s number");
-int column = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Enter row`s number: ");
+// int row = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Enter column`s number");
+// int column = Convert.ToInt32(Console.ReadLine());
 
-FindArrayElementPosition(array, row, column);
+// FindArrayElementPosition(array, row, column);
 
 
 /*
@@ -112,3 +112,55 @@ FindArrayElementPosition(array, row, column);
 Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 */
 //================= Task 3 ===========================
+int[,] Create2DArray(int rows, int cols, int min, int max)
+{
+    int[,] array = new int[rows, cols];
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            array[i, j] = new Random().Next(min, max + 1);
+        }
+    }
+    return array;
+}
+
+void Show2DArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void ShowColumnAvaregeValue(int[,] array)
+{
+    double averageSum = 0;
+    for(int i = 0; i < array.GetLength(1); i++)
+    {
+        double sum = 0;
+        for(int j = 0; j < array.GetLength(0); j++)
+        {
+           sum += array[j,i];
+        }
+        averageSum = sum/array.GetLength(0);
+        if(i != array.GetLength(1)-1) Console.Write($"{averageSum:0.00}; ");
+        else Console.Write($"{averageSum:0.00}.");
+        
+
+
+    }
+}
+
+int rows = new Random().Next(2, 5);
+int columns = new Random().Next(2, 5);
+int min = 1;
+int max = 10;
+int[,] array = Create2DArray(rows, columns, min, max);
+Show2DArray(array);
+Console.WriteLine();
+ShowColumnAvaregeValue(array);
