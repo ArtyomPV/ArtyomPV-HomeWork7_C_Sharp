@@ -27,16 +27,12 @@ m = 3, n = 4.
 //     }
 // }
 
-// Console.Write($"Enter number of rows: ");
-// int rows = Convert.ToInt32(Console.ReadLine());
+// int rows = 3;
 
-// Console.Write($"Enter number of cols: ");
-// int columns = Convert.ToInt32(Console.ReadLine());
+// int columns = 4;
 
-// Console.Write($"Enter min: ");
-// int min = Convert.ToInt32(Console.ReadLine());
-// Console.Write($"Enter max: ");
-// int max = Convert.ToInt32(Console.ReadLine());
+// int min = -9;
+// int max = 9;
 // CreateAndShow2DArray(rows, columns, min, max);
 
 /*
@@ -150,9 +146,6 @@ void ShowColumnAvaregeValue(int[,] array)
         averageSum = sum/array.GetLength(0);
         if(i != array.GetLength(1)-1) Console.Write($"{averageSum:0.00}; ");
         else Console.Write($"{averageSum:0.00}.");
-        
-
-
     }
 }
 
